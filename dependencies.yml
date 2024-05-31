@@ -1,0 +1,9 @@
+name: branches
+dependencies:
+  - python=3.12
+  - numpy
+  - matplotlib
+  - pandas
+  - scikit-learn
+  - nltk
+  - jupyter

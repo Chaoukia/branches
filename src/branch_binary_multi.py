@@ -2,6 +2,7 @@ import numpy as np
 import heapq
 from collections import Counter
 from nltk import Tree
+#from svgling import draw_tree
 from queue import Queue
 from time import time
 
@@ -504,6 +505,7 @@ class LatticeMulti:
         nltk tree object, visualize the optimal Decision Tree.
         """
 
+#        return draw_tree(self.build_string())
         return Tree.fromstring(self.build_string())
             
             
