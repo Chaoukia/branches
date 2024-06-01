@@ -44,6 +44,8 @@ class Branches:
             
         else:
             raise ValueError("encoding must be 'ordinal' or 'binary' or 'multi'.")
+
+        self.dict_branches = self.lattice.dict_branches
         
     def solve(self, lambd, n=1000, print_iter=100, time_limit=600):
         """
@@ -98,7 +100,7 @@ class Branches:
         --------------
         """
         
-        dict_branches.clear()
+        self.dict_branches.clear()
             
     def infer(self):
         """
@@ -136,7 +138,7 @@ class Branches:
 
         return preds
     
-    def plot_tree(self):
+    def plot_tree(self, show_classes=True):
         """
         Description
         --------------
@@ -150,7 +152,7 @@ class Branches:
         nltk tree object, visualize the optimal Decision Tree.
         """
 
-        return self.lattice.plot_tree()
+        return self.lattice.plot_tree(show_classes)
             
     
     

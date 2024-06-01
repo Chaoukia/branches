@@ -2,7 +2,6 @@ import numpy as np
 import heapq
 from collections import Counter
 from nltk import Tree
-#from svgling import draw_tree
 from queue import Queue
 from time import time
 
@@ -302,6 +301,7 @@ class LatticeBinary:
         
         self.n_total = n_total
         self.root = BranchBinary('', attributes, np.full(n_total, True))
+        self.dict_branches = dict_branches
         
     def select(self):
         """
@@ -471,7 +471,7 @@ class LatticeBinary:
 
         return branch.pred
             
-    def build_string_node(self, branch):
+    def build_string_node(self, branch, show_classes):
         """
         Description
         --------------
@@ -479,7 +479,7 @@ class LatticeBinary:
         
         Parameters
         --------------
-        branch : Branch, the branch to expand.
+        branch : Branch, the branch from which we want to build the optimal subtree.
         
         Returns
         --------------
@@ -488,16 +488,20 @@ class LatticeBinary:
         
         string = ''
         if (branch.terminal) or (not branch.children) or (branch.attribute_opt is None):
-            return string
+            if show_classes:
+                return 'Y=' + str(branch.pred) + ' '
+
+            else:
+                return ''
         
         children_opt = branch.children[branch.attribute_opt]
         for category in range(2):
             child = branch.children[branch.attribute_opt][category]
-            string += '(X_' + str(branch.attribute_opt) + '=' + str(category) + ' ' + self.build_string_node(child) + ') '
+            string += '(X_' + str(branch.attribute_opt) + '=' + str(category) + ' ' + self.build_string_node(child, show_classes) + ') '
 
         return string
     
-    def build_string(self):
+    def build_string(self, show_classes=True):
         """
         Description
         --------------
@@ -511,9 +515,9 @@ class LatticeBinary:
         String representation of the optimal Decision Tree.
         """
         
-        return '( ' + self.build_string_node(self.root) + ')'
+        return '( ' + self.build_string_node(self.root, show_classes) + ')'
     
-    def plot_tree(self):
+    def plot_tree(self, show_classes=True):
         """
         Description
         --------------
@@ -527,8 +531,5 @@ class LatticeBinary:
         nltk tree object, visualize the optimal Decision Tree.
         """
 
-#        return draw_tree(self.build_string())
-        return Tree.fromstring(self.build_string())
-            
-            
-        
+        return Tree.fromstring(self.build_string(show_classes))
+
