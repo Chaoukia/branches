@@ -114,6 +114,27 @@ class Branches:
         """
         
         return self.lattice.infer()
+
+    def predict(self, X):
+        """
+        Description
+        --------------
+        Predict the classes of the examples in the data matrix X.
+        
+        Parameters
+        --------------
+        X : 2D np.array, its rows are the examples we want to classify.
+        
+        Returns
+        --------------
+        1D np.array, the predicted classes of the rows in data matrix X.
+        """
+
+        preds = np.empty(X.shape[0])
+        for i in range(X.shape[0]):
+            preds[i] = self.lattice.predict(X[i, :])
+
+        return preds
     
     def plot_tree(self):
         """

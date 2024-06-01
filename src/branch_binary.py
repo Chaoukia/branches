@@ -449,6 +449,27 @@ class LatticeBinary:
                     queue.put(child)
                     
         return branches, splits
+
+    def predict(self, X):
+        """
+        Description
+        --------------
+        Predict the class of example X.
+        
+        Parameters
+        --------------
+        X : 1D np.array, the example we want to classify.
+        
+        Returns
+        --------------
+        Int, the predicted class of X.
+        """
+
+        branch = self.root
+        while (not branch.terminal) and (branch.children) and (branch.attribute_opt is not None):
+            branch = branch.children[branch.attribute_opt][X[branch.attribute_opt]]
+
+        return branch.pred
             
     def build_string_node(self, branch):
         """
