@@ -153,12 +153,5 @@ class Branches:
         """
 
         return self.lattice.plot_tree(show_classes)
-            
-    
-    
-    
-    
-    
-    
     
     

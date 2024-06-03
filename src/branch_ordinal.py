@@ -73,7 +73,7 @@ class Branch:
             self.complete = True
         
         self.value, self.value_terminal, self.value_greedy = None, None, None
-        self.freq, self.pred = None, None
+        self.freq, self.pred = None, 0
         dict_branches[self.id_branch] = self    # Add the branch to the memo.
         
     def set_value(self, value):

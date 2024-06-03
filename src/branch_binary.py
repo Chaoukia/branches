@@ -76,7 +76,7 @@ class BranchBinary:
         self.value_terminal = None
         self.value_greedy = None
         self.freq = None
-        self.pred = None
+        self.pred = 0
         self.n_samples = None
         self.n_ones = None
         self.children = {}
