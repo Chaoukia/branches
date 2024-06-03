@@ -25,6 +25,11 @@ pip install svgling
     │   └── tutorial.ipynb           # Tutorial .ipynb notebook
     ├── LICENSE
     └── README.md
+File ```src/tutorial.ipynb``` contains a tutorial on how to use Branches with illustrative examples.
+
+## Examples of Optimal Decision Trees
+
+
 
 ## Empirical Evaluation
 
