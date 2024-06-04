@@ -27,13 +27,9 @@ pip install svgling
     └── README.md
 File ```src/tutorial.ipynb``` contains a tutorial on how to use Branches with illustrative examples.
 
-## Examples of Optimal Decision Trees
-
-
-
 ## Empirical Evaluation
 
-Branches solves for sparsity, which means that it not only optimises for accuracy but also for the complexity of the Decision Tree. A good metric to evaluate these Decision Tree solution is through the regularised objective $\mathcal{H}_{\lambda}\left( T\right) = \textrm{Accuracy}\left( T\right) - \lambda \mathcal{S}\left( T\right)$, where $\mathcal{S}\left( T\right)$ is the number of splits (internal nodes) of $T$ and $\lambda \in \left[ 0, 1 \right]$ is a penalty parameter. Branches achieves and proves convergence in record times on many datasets when compared with the state of the art. The table below summarises the empirical comparison of the different algorithms. $\mathcal{T}$ is the execution time in seconds, and $\mathcal{I}$ the number of iterations. Branches clearly outperforms the Python implementations OSDT and PyGOSDT in terms of optimal convergence and speed. Branches also outperforms the C++ implementation GOSDT in many cases, and even when it is slower, Branches always converges in significantly fewer iterations. With these findings we conclude that Branches is a practical and very promising algorithm, a future C++ implementation of Branches will likely lead to a significant improvement of Branches' performance, just as we notice when comparing PyGOSDT and GOSDT.
+Branches solves for sparsity, which means that it not only optimises for accuracy but also for the complexity of the Decision Tree. A good metric to evaluate these Decision Tree solution is through the regularised objective $\mathcal{H}_{\lambda}\left( T\right) = \textrm{Accuracy}\left( T\right) - \lambda \mathcal{S}\left( T\right)$, where $\mathcal{S}\left( T\right)$ is the number of splits (internal nodes) of $T$ and $\lambda \in \left[ 0, 1 \right]$ is a penalty parameter. Branches achieves and proves convergence in record times on many datasets when compared with the state of the art. The table below summarises the empirical comparison of the different algorithms. $\mathcal{T}$ is the execution time in seconds (TO indicates time out after 5 minutes), and $\mathcal{I}$ the number of iterations. Branches clearly outperforms the Python implementations OSDT and PyGOSDT in terms of optimal convergence and speed. Branches also outperforms the C++ implementation GOSDT in many cases, and even when it is slower, Branches always converges in significantly fewer iterations. Branches is a practical and very promising algorithm, moreover, a future C++ implementation of Branches will likely lead to a significant improvement of Branches' computational performance, just as we notice when comparing PyGOSDT and GOSDT.
 
 <table>
   <tr>
