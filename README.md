@@ -1,6 +1,6 @@
-# branches
+# Branches: A Fast Dynamic Programming and Branch & Bound Algorithm for Optimal Decision Trees
 
-Source code for the Algorithm Branches.
+Source code for the Algorithm Branches described in the paper [Branches: A Fast Dynamic Programming and Branch & Bound Algorithm for Optimal Decision Trees](https://arxiv.org/abs/2406.02175) that is currecntly under review.
 
 ## Dependencies
 
