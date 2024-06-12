@@ -27,6 +27,47 @@ pip install svgling
     └── README.md
 File ```src/tutorial.ipynb``` contains a tutorial on how to use Branches with illustrative examples.
 
+## Example of usage
+
+The [MONK's Problems](https://archive.ics.uci.edu/dataset/70/monk+s+problems) are standard datasets for benchmarking Optimal Decision Trees algorithms. We use the first of these problems to illustrate how to use Branches.
+
+```python
+from branches import *
+from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder, LabelEncoder
+
+# Reading the data
+data = np.genfromtxt('data/monks-1.train', delimiter=' ', dtype=int)
+data = data[:, :-1] # Getting rid of the last column, it contains only ids.
+data = data[:, ::-1] # Reorder the columns to put the predicted variable Y at the end.
+
+# Ordinal Encoding of the data
+encoder = OrdinalEncoder()
+encoder.fit(data)
+data = encoder.transform(data).astype(int)
+
+# Running Branches
+alg = Branches(data)
+alg.solve(lambd=0.01)
+
+# Printing the accuracy, number of branches and number of splits
+branches, splits = alg.lattice.infer()
+print('Number of branches :', len(branches))
+print('Number of splits :', splits)
+print('Accuracy :', ((alg.predict(data[:, :-1]) == data[:, -1]).sum())/alg.n_total)
+```
+
+Using the nltk and svgling packages, we can plot the optimal Decision Tree via the following code:
+
+```python
+tree = alg.plot_tree()
+svgling.draw_tree(tree)
+```
+
+Which yields the figure below.
+
+<img src="trees/monk1-o.svg">
+
+
 ## Empirical Evaluation
 
 Branches solves for sparsity, which means that it not only optimises for accuracy but also for the complexity of the Decision Tree. A good metric to evaluate these Decision Tree solution is through the regularised objective $\mathcal{H}_{\lambda}\left( T\right) = \textrm{Accuracy}\left( T\right) - \lambda \mathcal{S}\left( T\right)$, where $\mathcal{S}\left( T\right)$ is the number of splits (internal nodes) of $T$ and $\lambda \in \left[ 0, 1 \right]$ is a penalty parameter. Branches achieves and proves convergence in record times on many datasets when compared with the state of the art. The table below summarises the empirical comparison of the different algorithms. $\mathcal{T}$ is the execution time in seconds (TO indicates time out after 5 minutes), and $\mathcal{I}$ the number of iterations. Branches clearly outperforms the Python implementations OSDT and PyGOSDT in terms of optimal convergence and speed. Branches also outperforms the C++ implementation GOSDT in many cases, and even when it is slower, Branches always converges in significantly fewer iterations. Branches is a practical and very promising algorithm, moreover, a future C++ implementation of Branches will likely lead to a significant improvement of Branches' computational performance, just as we notice when comparing PyGOSDT and GOSDT.
