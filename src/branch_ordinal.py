@@ -496,7 +496,8 @@ class Lattice:
         
         Parameters
         --------------
-        branch : Branch, the branch from which we want to build the optimal subtree.
+        branch       : Branch, the branch from which we want to build the optimal subtree.
+        show_classes : Boolean, whether to show the predicted classes or not.
         
         Returns
         --------------
@@ -526,6 +527,7 @@ class Lattice:
         
         Parameters
         --------------
+        show_classes : Boolean, whether to show the predicted classes or not.
         
         Returns
         --------------
@@ -542,6 +544,7 @@ class Lattice:
         
         Parameters
         --------------
+        show_classes : Boolean, whether to show the predicted classes or not.
         
         Returns
         --------------

@@ -1,3 +1,4 @@
+import svgling
 from branch_ordinal import *
 from branch_binary import *
 from branch_binary_multi import *
@@ -146,6 +147,7 @@ class Branches:
         
         Parameters
         --------------
+        show_classes : Boolean, whether to show the predicted classes or not.
         
         Returns
         --------------
@@ -153,5 +155,23 @@ class Branches:
         """
 
         return self.lattice.plot_tree(show_classes)
+
+    def save_tree(self, show_classes=True, file_name='tree.svg'):
+        """
+        Description
+        --------------
+        Plot the decision tree.
+        
+        Parameters
+        --------------
+        show_classes : Boolean, whether to show the predicted classes or not.
+        file_name    : String, name of the file where to store the tree.
+        
+        Returns
+        --------------
+        """
+
+        tree = self.lattice.plot_tree(show_classes)
+        svgling.draw_tree(tree).saveas("../trees/"+file_name, pretty=True) 
     
     
