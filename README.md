@@ -56,17 +56,30 @@ print('Number of splits :', splits)
 print('Accuracy :', ((alg.predict(data[:, :-1]) == data[:, -1]).sum())/alg.n_total)
 ```
 
-Using the nltk and svgling packages, we can plot the optimal Decision Tree via the following code:
+Using the nltk and svgling packages, we can plot the optimal Decision Tree via the code below. $\color{red}{\textsf{Please note that if you do not see the figures, it is probably due to a contrast issue and you should set a light theme for Github.}}$
 
 ```python
 tree = alg.plot_tree()
 svgling.draw_tree(tree)
 ```
 
-Which yields the figure below.
-
 <img src="trees/monk1-o.svg">
 
+If we are only interested in the tree structure regardless of the predicted classes at the leaves, we can set ```show_classes=False``` in the plot_tree method.
+
+```python
+tree = alg.plot_tree(show_classes=False)
+svgling.draw_tree(tree)
+```
+
+<img src="trees/monk1-o-no_classes.svg">
+
+Here are some more examples of optimal Decision Trees we find for different problems.
+
+<img src="trees/monk1-l.svg">
+<img src="trees/car-eval-f.svg">
+
+The tutorial file ```src/tutorial.ipynb``` contains more examples on how to use Branches, especially with its micro-optimisation techniques that allow for significant computational gains.
 
 ## Empirical Evaluation
 
