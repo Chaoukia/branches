@@ -83,7 +83,7 @@ The tutorial file ```src/tutorial.ipynb``` contains more examples on how to use 
 
 ## Empirical Evaluation
 
-Branches solves for sparsity, which means that it not only optimises for accuracy but also for the complexity of the Decision Tree. A good metric to evaluate these Decision Tree solution is through the regularised objective $\mathcal{H}_{\lambda}\left( T\right) = \textrm{Accuracy}\left( T\right) - \lambda \mathcal{S}\left( T\right)$, where $\mathcal{S}\left( T\right)$ is the number of splits (internal nodes) of $T$ and $\lambda \in \left[ 0, 1 \right]$ is a penalty parameter. Branches achieves and proves convergence in record times on many datasets when compared with the state of the art. The table below summarises the empirical comparison of the different algorithms. $\mathcal{T}$ is the execution time in seconds (TO indicates time out after 5 minutes), and $\mathcal{I}$ the number of iterations. Branches clearly outperforms the Python implementations OSDT and PyGOSDT in terms of optimal convergence and speed. Branches also outperforms the C++ implementation GOSDT in many cases, and even when it is slower, Branches always converges in significantly fewer iterations. Branches is a practical and very promising algorithm, moreover, a future C++ implementation of Branches will likely lead to a significant improvement of Branches' computational performance, just as we notice when comparing PyGOSDT and GOSDT.
+Branches optimises the regularised accuracy $\mathcal{H}_{\lambda}\left( T\right) = \textrm{Accuracy}\left( T\right) - \lambda \mathcal{S}\left( T\right)$, where $\mathcal{S}\left( T\right)$ is the number of splits (internal nodes) of Decision Tree $T$ and $\lambda \in \left[ 0, 1 \right]$ is a penalty parameter. The table below summarises the empirical comparison between Branches and the state of the art. $\mathcal{T}$ is the execution time in seconds (TO indicates time out after 5 minutes), and $\mathcal{I}$ the number of iterations, ___ indicates the inapplicability of the method to the setting. Branches clearly outperforms the Python implementations OSDT and PyGOSDT. Branches also outperforms the C++ implementation GOSDT in many cases, and even when it is slower, Branches always converges in significantly fewer iterations. A future C++ implementation of Branches will likely lead to a significant improvement of Branches' computational performance, just as we notice when comparing PyGOSDT and GOSDT.
 
 <table>
   <tr>
@@ -110,33 +110,33 @@ Branches solves for sparsity, which means that it not only optimises for accurac
   </tr>
   <tr>
     <td>monk1-l</td>
-    <td>0.93</td>
-    <td>71</td>
-    <td>2e6</td>
-    <td>0.93</td>
-    <td>181</td>
-    <td>3e6</td>
-    <td>0.93</td>
-    <td>0.71</td>
-    <td>3e4</td>
-    <td>0.93</td>
-    <td>0.11</td>
-    <td>617</td>
+    <td>$0.93$</td>
+    <td>$71$</td>
+    <td>$2\mathrm{e}6$</td>
+    <td>$0.93$</td>
+    <td>$181$</td>
+    <td>$3\mathrm{e}6$</td>
+    <td>$0.93$</td>
+    <td>$0.71$</td>
+    <td>$3\mathrm{e}4$</td>
+    <td>$0.93$</td>
+    <td>$0.11$</td>
+    <td>$617$</td>
   </tr>
   <tr>
     <td>monk1-f</td>
-    <td>0.97</td>
+    <td>$0.97$</td>
     <td>TO</td>
-    <td>2e4</td>
-    <td>0.97</td>
+    <td>$2\mathrm{e}4$</td>
+    <td>$0.97$</td>
     <td>TO</td>
-    <td>2e3</td>
-    <td>0.983</td>
-    <td>4.02</td>
-    <td>9e4</td>
-    <td>0.983</td>
-    <td>1.31</td>
-    <td>1e4</td>
+    <td>$2\mathrm{e}3$</td>
+    <td>$0.983$</td>
+    <td>$4.02$</td>
+    <td>$9\mathrm{e}4$</td>
+    <td>$0.983$</td>
+    <td>$1.31$</td>
+    <td>$1\mathrm{e}4$</td>
   </tr>
   <tr>
     <td>monk1-o</td>
@@ -149,39 +149,39 @@ Branches solves for sparsity, which means that it not only optimises for accurac
     <td>___</td>
     <td>___</td>
     <td>___</td>
-    <td>0.9</td>
-    <td>0.02</td>
-    <td>64</td>
+    <td>$0.9$</td>
+    <td>$0.02$</td>
+    <td>$64$</td>
   </tr>
   <tr>
     <td>monk2-l</td>
-    <td>0.95</td>
+    <td>$0.95$</td>
     <td>TO</td>
-    <td>7e4</td>
-    <td>0.95</td>
+    <td>$7\mathrm{e}4$</td>
+    <td>$0.95$</td>
     <td>TO</td>
-    <td>400</td>
-    <td>0.97</td>
-    <td>10</td>
-    <td>1e5</td>
-    <td>0.97</td>
-    <td>2.8</td>
-    <td>3e4</td>
+    <td>$400$</td>
+    <td>$0.97$</td>
+    <td>$10$</td>
+    <td>$1\mathrm{e}5$</td>
+    <td>$0.97$</td>
+    <td>$2.8$</td>
+    <td>$3\mathrm{e}4$</td>
   </tr>
   <tr>
     <td>monk2-f</td>
-    <td>0.90</td>
+    <td>$0.90$</td>
     <td>TO</td>
-    <td>4e4</td>
-    <td>0.90</td>
+    <td>$4e4$</td>
+    <td>$0.90$</td>
     <td>TO</td>
-    <td>3e4</td>
-    <td>0.93</td>
-    <td>11.1</td>
-    <td>1e5</td>
-    <td>0.93</td>
-    <td>5.9</td>
-    <td>7e4</td>
+    <td>$3\mathrm{e}4$</td>
+    <td>$0.93$</td>
+    <td>$11.1$</td>
+    <td>$1\mathrm{e}5$</td>
+    <td>$0.93$</td>
+    <td>$5.9$</td>
+    <td>$7\mathrm{e}4$</td>
   </tr>
   <tr>
     <td>monk2-o</td>
@@ -194,39 +194,39 @@ Branches solves for sparsity, which means that it not only optimises for accurac
     <td>___</td>
     <td>___</td>
     <td>___</td>
-    <td>0.95</td>
-    <td>0.14</td>
-    <td>1e3</td>
+    <td>$0.95$</td>
+    <td>$0.14$</td>
+    <td>$1\mathrm{e}3$</td>
   </tr>
   <tr>
     <td>monk3-l</td>
-    <td>0.979</td>
+    <td>$0.979$</td>
     <td>TO</td>
-    <td>593</td>
-    <td>0.979</td>
+    <td>$593$</td>
+    <td>$0.979$</td>
     <td>TO</td>
-    <td>123</td>
-    <td>0.981</td>
-    <td>7.38</td>
-    <td>8e4</td>
-    <td>0.981</td>
-    <td>1.20</td>
-    <td>9e3</td>
+    <td>$123$</td>
+    <td>$0.981$</td>
+    <td>$7.38$</td>
+    <td>$8\mathrm{e}4$</td>
+    <td>$0.981$</td>
+    <td>$1.20$</td>
+    <td>$9\mathrm{e}3$</td>
   </tr>
   <tr>
     <td>monk3-f</td>
-    <td>0.975</td>
+    <td>$0.975$</td>
     <td>TO</td>
-    <td>1e4</td>
-    <td>0.973</td>
+    <td>$1\mathrm{e}4$</td>
+    <td>$0.973$</td>
     <td>TO</td>
-    <td>9e3</td>
-    <td>0.983</td>
-    <td>2.13</td>
-    <td>5e4</td>
-    <td>0.983</td>
-    <td>1.14</td>
-    <td>9e3</td>
+    <td>$9\mathrm{e}3$</td>
+    <td>$0.983$</td>
+    <td>$2.13$</td>
+    <td>$5\mathrm{e}4$</td>
+    <td>$0.983$</td>
+    <td>$1.14$</td>
+    <td>$9\mathrm{e}3$</td>
   </tr>
   <tr>
     <td>monk3-o</td>
@@ -239,24 +239,24 @@ Branches solves for sparsity, which means that it not only optimises for accurac
     <td>___</td>
     <td>___</td>
     <td>___</td>
-    <td>0.987</td>
-    <td>0.04</td>
-    <td>156</td>
+    <td>$0.987$</td>
+    <td>$0.04$</td>
+    <td>$156$</td>
   </tr>
   <tr>
     <td>tic-tac-toe</td>
-    <td>0.765</td>
+    <td>$0.765$</td>
     <td>TO</td>
-    <td>40</td>
-    <td>0.808</td>
+    <td>$40$</td>
+    <td>$0.808$</td>
     <td>TO</td>
-    <td>37</td>
-    <td>0.850</td>
-    <td>41</td>
-    <td>1.6e6</td>
-    <td>0.850</td>
-    <td>68</td>
-    <td>2.6e5</td>
+    <td>$37$</td>
+    <td>$0.850$</td>
+    <td>$41$</td>
+    <td>$1.6\mathrm{e}6$</td>
+    <td>$0.850$</td>
+    <td>$68$</td>
+    <td>$2.6\mathrm{e}5$</td>
   </tr>
   <tr>
     <td>tic-tac-toe-o</td>
@@ -269,9 +269,9 @@ Branches solves for sparsity, which means that it not only optimises for accurac
     <td>___</td>
     <td>___</td>
     <td>___</td>
-    <td>0.832</td>
-    <td>0.95</td>
-    <td>3479</td>
+    <td>$0.832$</td>
+    <td>$0.95$</td>
+    <td>$3479$</td>
   </tr>
   <tr>
     <td>car-eval</td>
@@ -281,12 +281,12 @@ Branches solves for sparsity, which means that it not only optimises for accurac
     <td>___</td>
     <td>___</td>
     <td>___</td>
-    <td>0.799</td>
-    <td>18</td>
-    <td>9e5</td>
-    <td>0.799</td>
-    <td>62</td>
-    <td>3e5</td>
+    <td>$0.799$</td>
+    <td>$18$</td>
+    <td>$9\mathrm{e}5$</td>
+    <td>$0.799$</td>
+    <td>$62$</td>
+    <td>$3\mathrm{e}5$</td>
   </tr>
   <tr>
     <td>car-eval-o</td>
@@ -299,9 +299,9 @@ Branches solves for sparsity, which means that it not only optimises for accurac
     <td>___</td>
     <td>___</td>
     <td>___</td>
-    <td>0.812</td>
-    <td>0.11</td>
-    <td>632</td>
+    <td>$0.812$</td>
+    <td>$0.11$</td>
+    <td>$632$</td>
   </tr>
   <tr>
     <td>nursery</td>
@@ -311,12 +311,12 @@ Branches solves for sparsity, which means that it not only optimises for accurac
     <td>___</td>
     <td>___</td>
     <td>___</td>
-    <td>0.755</td>
+    <td>$0.755$</td>
     <td>TO</td>
-    <td>9e5</td>
-    <td>0.820</td>
+    <td>$9\mathrm{e}5$</td>
+    <td>$0.820$</td>
     <td>TO</td>
-    <td>3e5</td>
+    <td>$3\mathrm{e}5$</td>
   </tr>
   <tr>
     <td>nursery-o</td>
@@ -329,24 +329,24 @@ Branches solves for sparsity, which means that it not only optimises for accurac
     <td>___</td>
     <td>___</td>
     <td>___</td>
-    <td>0.822</td>
-    <td>0.34</td>
-    <td>244</td>
+    <td>$0.822$</td>
+    <td>$0.34$</td>
+    <td>$244$</td>
   </tr>
   <tr>
     <td>mushroom</td>
-    <td>0.945</td>
+    <td>$0.945$</td>
     <td>TO</td>
-    <td>4e6</td>
-    <td>0.945</td>
+    <td>$4\mathrm{e}6$</td>
+    <td>$0.945$</td>
     <td>TO</td>
-    <td>2e6</td>
-    <td>0.925</td>
+    <td>$2\mathrm{e}6$</td>
+    <td>$0.925$</td>
     <td>TO</td>
-    <td>1e6</td>
-    <td>0.938</td>
+    <td>$1e6$</td>
+    <td>$0.938$</td>
     <td>TO</td>
-    <td>2e4</td>
+    <td>$2\mathrm{e}4$</td>
   </tr>
   <tr>
     <td>mushroom-o</td>
@@ -359,24 +359,24 @@ Branches solves for sparsity, which means that it not only optimises for accurac
     <td>___</td>
     <td>___</td>
     <td>___</td>
-    <td>0.975</td>
-    <td>0.17</td>
-    <td>6</td>
+    <td>$0.975$</td>
+    <td>$0.17$</td>
+    <td>$6$</td>
   </tr>
   <tr>
     <td>kr-vs-kp</td>
-    <td>0.900</td>
+    <td>$0.900$</td>
     <td>TO</td>
-    <td>6e4</td>
-    <td>0.900</td>
+    <td>$6\mathrm{e}4$</td>
+    <td>$0.900$</td>
     <td>TO</td>
-    <td>2e4</td>
-    <td>0.815</td>
+    <td>$2\mathrm{e}4$</td>
+    <td>$0.815$</td>
     <td>TO</td>
-    <td>4e5</td>
-    <td>0.900</td>
+    <td>$4\mathrm{e}5$</td>
+    <td>$0.900$</td>
     <td>TO</td>
-    <td>8e4</td>
+    <td>$8\mathrm{e}4$</td>
   </tr>
   <tr>
     <td>kr-vskp-o</td>
@@ -389,9 +389,9 @@ Branches solves for sparsity, which means that it not only optimises for accurac
     <td>___</td>
     <td>___</td>
     <td>___</td>
-    <td>0.900</td>
+    <td>$0.900$</td>
     <td>TO</td>
-    <td>8e4</td>
+    <td>$8\mathrm{e}4$</td>
   </tr>
   <tr>
     <td>zoo</td>
@@ -401,12 +401,12 @@ Branches solves for sparsity, which means that it not only optimises for accurac
     <td>___</td>
     <td>___</td>
     <td>___</td>
-    <td>0.992</td>
-    <td>34</td>
-    <td>3e5</td>
-    <td>0.992</td>
-    <td>15</td>
-    <td>3e4</td>
+    <td>$0.992$</td>
+    <td>$34$</td>
+    <td>$3e5$</td>
+    <td>$0.992$</td>
+    <td>$15$</td>
+    <td>$3\mathrm{e}4$</td>
   </tr>
   <tr>
     <td>zoo-o</td>
@@ -419,9 +419,9 @@ Branches solves for sparsity, which means that it not only optimises for accurac
     <td>___</td>
     <td>___</td>
     <td>___</td>
-    <td>0.993</td>
-    <td>0.94</td>
-    <td>1456</td>
+    <td>$0.993$</td>
+    <td>$0.94$</td>
+    <td>$1456$</td>
   </tr>
   <tr>
     <td>lymph</td>
@@ -431,12 +431,12 @@ Branches solves for sparsity, which means that it not only optimises for accurac
     <td>___</td>
     <td>___</td>
     <td>___</td>
-    <td>0.784</td>
+    <td>$0.784$</td>
     <td>TO</td>
-    <td>1e6</td>
-    <td>0.808</td>
+    <td>$1\mathrm{e}6$</td>
+    <td>$0.808$</td>
     <td>TO</td>
-    <td>1e5</td>
+    <td>$1\mathrm{e}5$</td>
   </tr>
   <tr>
     <td>lymph-o</td>
@@ -449,24 +449,24 @@ Branches solves for sparsity, which means that it not only optimises for accurac
     <td>___</td>
     <td>___</td>
     <td>___</td>
-    <td>0.852</td>
-    <td>18</td>
-    <td>2e4</td>
+    <td>$0.852$</td>
+    <td>$18$</td>
+    <td>$2\mathrm{e}4$</td>
   </tr>
   <tr>
     <td>balance</td>
-    <td>0.693</td>
+    <td>$0.693$</td>
     <td>TO</td>
-    <td>1e5</td>
-    <td>0.693</td>
+    <td>$1\mathrm{e}5$</td>
+    <td>$0.693$</td>
     <td>TO</td>
-    <td>3e4</td>
-    <td>0.693</td>
-    <td>21</td>
-    <td>1e6</td>
-    <td>0.693</td>
-    <td>62</td>
-    <td>3e5</td>
+    <td>$3\mathrm{e}4$</td>
+    <td>$0.693$</td>
+    <td>$21$</td>
+    <td>$1\mathrm{e}6$</td>
+    <td>$0.693$</td>
+    <td>$62$</td>
+    <td>$3\mathrm{e}5$</td>
   </tr>
   <tr>
     <td>balance-o</td>
@@ -479,9 +479,9 @@ Branches solves for sparsity, which means that it not only optimises for accurac
     <td>___</td>
     <td>___</td>
     <td>___</td>
-    <td>0.661</td>
-    <td>0.02</td>
-    <td>130</td>
+    <td>$0.661$</td>
+    <td>$0.02$</td>
+    <td>$130$</td>
   </tr>
 </table>
 
