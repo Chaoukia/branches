@@ -23,6 +23,7 @@ pip install svgling
     │   ├── branch_binary_multi.py   # Source file for classification problems with binary data
     │   ├── branches.py              # Source file for the Branches algorithm
     │   └── tutorial.ipynb           # Tutorial .ipynb notebook
+    ├── trees                        # SVG files of optimal decision trees
     ├── LICENSE
     └── README.md
 File ```src/tutorial.ipynb``` contains a tutorial on how to use Branches with illustrative examples.
