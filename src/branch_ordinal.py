@@ -290,7 +290,6 @@ class Branch:
                 self.attribute_opt = attribute
                 self.set_value_greedy(value_children_greedy)
 
-
 class Lattice:
     """
     Description
@@ -372,14 +371,15 @@ class Lattice:
         for attribute in branch.attributes_categories:
             X_branch, y_branch = data_branch[:, attribute], data_branch[:, -1]
             branch.split(X_branch, y_branch, lambd, sorted_branch, attribute, n_total)
-            
+
         value_max = -branch.queue[0][0] - lambd
         branch.set_value(value_max)
         if not branch.queue[0][-2]:
             branch.complete = True   # The branch is complete if its best set of children is complete (children_queue is empty).
             
-        if branch.value == branch.value_terminal:
+        if branch.value <= branch.value_terminal:
             branch.complete, branch.terminal = True, True
+            branch.set_value(branch.value_terminal)
                         
     def backpropagate(self, path, lambd):
         """
@@ -428,7 +428,7 @@ class Lattice:
             parent.set_value(max(value_parent, parent.value_terminal))
             if parent.value == parent.value_terminal:
                 parent.complete, parent.terminal = True, True
-                
+
             if not parent.queue[0][-2]:
                 parent.complete = True   # The parent branch is complete if its best set of children is composed of complete branches.
                 
@@ -552,6 +552,5 @@ class Lattice:
         """
 
         return Tree.fromstring(self.build_string(show_classes))
-
 
         

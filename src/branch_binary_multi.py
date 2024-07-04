@@ -361,8 +361,9 @@ class LatticeMulti:
         if not branch.queue[0][-2]:
             branch.complete = True   # The branch is complete if its best set of children is complete (children_queue is empty).
             
-        if branch.value == branch.value_terminal:
+        if branch.value <= branch.value_terminal:
             branch.complete, branch.terminal = True, True
+            branch.set_value(branch.value_terminal)
                         
     def backpropagate(self, path, lambd):
         """
