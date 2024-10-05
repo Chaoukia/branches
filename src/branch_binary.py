@@ -78,7 +78,8 @@ class BranchBinary:
         self.freq = None
         self.pred = 0
         self.n_samples = None
-        self.n_ones = None
+#        self.n_ones = None
+        self.n_ones = 0
         self.children = {}
         self.queue = []
         dict_branches[self.id_branch] = self    # Add the branch to the memo.
@@ -140,7 +141,7 @@ class BranchBinary:
             self.value_terminal = 0
             self.value_greedy = 0
             self.freq = 0
-            self.n_ones = 0
+#            self.n_ones = 0
 
         else:
             s = np.count_nonzero(y)
@@ -276,7 +277,6 @@ class BranchBinary:
             self.attribute_opt = attribute
             self.value_greedy = value_children_greedy
         
-    
 class LatticeBinary:
     """
     Description

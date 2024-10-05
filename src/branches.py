@@ -78,15 +78,17 @@ class Branches:
                 print('Iteration %d' %i)
                 if time() - start_time > time_limit:
                     print('Time Out.')
-                    return
+                    return i
                 
             i += 1
             
         if i < n:
             print('The search finished after %d iterations.' %i)
+            return i
             
         else:
             print('The search is still incomplete.')
+            return i
             
     def reinitialise(self):
         """

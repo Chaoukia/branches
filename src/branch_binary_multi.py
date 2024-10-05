@@ -79,7 +79,8 @@ class BranchMulti:
         self.freq = None
         self.pred = 0
         self.n_samples = None
-        self.n_classes = np.empty(K)
+#        self.n_classes = np.empty(K)
+        self.n_classes = np.zeros(K)
         self.children = {}
         self.queue = []
         dict_branches[self.id_branch] = self    # Add the branch to the memo.
@@ -138,7 +139,7 @@ class BranchMulti:
             self.value_terminal = 0
             self.value_greedy = 0
             self.freq = 0
-            self.n_classes.fill(0)
+#            self.n_classes.fill(0)
 
         else:
             count = Counter(y).most_common()
@@ -180,7 +181,7 @@ class BranchMulti:
                     self.complete, self.terminal = True, True   # The terminal action has been proven to be the best at this branch.
 
             else:    # If the branch can no longer be split because there are no more available attributes.
-                set_value(id_branch, self.value_terminal)
+                self.set_value(self.value_terminal)
                 
                 
     def split(self, X_branch, y_branch, lambd, sorted_branch, attribute, n_total, K):
