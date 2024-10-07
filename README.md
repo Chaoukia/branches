@@ -58,7 +58,7 @@ print('Number of splits :', splits)
 print('Accuracy :', ((alg.predict(data[:, :-1]) == data[:, -1]).sum())/alg.n_total)
 ```
 
-Using the nltk and svgling packages, we can plot the optimal Decision Tree via the code below. $\color{red}{\textsf{Please note that if you do not see the figures, it is probably due to a contrast issue and you should set a light theme for Github.}}$
+Using the nltk and svgling packages, we can plot the optimal Decision Tree via the code below. $\color{red}{\textsf{If you do not see the figures, it is due to a contrast issue and you should set a light theme for Github.}}$
 
 ```python
 tree = alg.plot_tree()
