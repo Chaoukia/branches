@@ -61,25 +61,29 @@ print('Accuracy :', ((alg.predict(data[:, :-1]) == data[:, -1]).sum())/alg.n_tot
 Using the nltk and svgling packages, we can plot the optimal Decision Tree via the code below. $\color{red}{\textsf{If you do not see the figures, it is due to a contrast issue and you should set a light theme for Github.}}$
 
 ```python
-tree = alg.plot_tree()
-svgling.draw_tree(tree)
-```
-
-<img src="trees/monk1-o.svg">
-
-If we are only interested in the tree structure regardless of the predicted classes at the leaves, we can set ```show_classes=False``` in the plot_tree method.
-
-```python
 tree = alg.plot_tree(show_classes=False)
 svgling.draw_tree(tree)
 ```
 
 <img src="trees/monk1-o-no_classes.svg">
 
-Here are some more examples of optimal Decision Trees we find for different problems.
+This figure does not include the predictions at the level of the leaves. To show these, set ```show_classes=True``` in the plot_tree method.
 
-<img src="trees/monk1-l.svg">
-<img src="trees/car-eval-f.svg">
+```python
+tree = alg.plot_tree(show_classes=True)
+svgling.draw_tree(tree)
+```
+
+<img src="trees/monk1-o.svg">
+
+Some nodes exhibit the same subtrees, which makes this representation a little redundant. To compactify it, set ```compact=True``` in the plot_tree method.
+
+```python
+tree = alg.plot_tree(show_classes=True, compact=True)
+svgling.draw_tree(tree)
+```
+
+<img src="trees/monk1-o-compact.svg">
 
 The tutorial file ```src/tutorial.ipynb``` contains more examples on how to use Branches, especially with its micro-optimisation techniques that allow for significant computational gains.
 

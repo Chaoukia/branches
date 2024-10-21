@@ -141,7 +141,7 @@ class Branches:
 
         return preds
     
-    def plot_tree(self, show_classes=True):
+    def plot_tree(self, show_classes=True, compact=False):
         """
         Description
         --------------
@@ -156,7 +156,11 @@ class Branches:
         nltk tree object, visualize the optimal Decision Tree.
         """
 
-        return self.lattice.plot_tree(show_classes)
+        if self.encoding == 'ordinal':
+            return self.lattice.plot_tree(show_classes, compact)
+
+        else:
+            return self.lattice.plot_tree(show_classes)
 
     def save_tree(self, show_classes=True, file_name='tree.svg'):
         """

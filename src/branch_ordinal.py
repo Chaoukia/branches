@@ -1,5 +1,6 @@
 import numpy as np
 import heapq
+import warnings
 from collections import Counter
 from nltk import Tree
 from queue import Queue
@@ -484,8 +485,15 @@ class Lattice:
 
         branch = self.root
         while (not branch.terminal) and (branch.children) and (branch.attribute_opt is not None):
-            branch = branch.children[branch.attribute_opt][X[branch.attribute_opt]]
+            # When a feature has a value that was not observed during training, predict the class of the current branch (node).
+            try:
+                branch = branch.children[branch.attribute_opt][X[branch.attribute_opt]]
 
+            except KeyError:
+                warnings.warn("The input " + str(X) + " could not be properly sorted into a leaf because the value " + str(X[branch.attribute_opt]) + " of feature " + str(branch.attribute_opt)
+                             + " was not observed during training.")
+                return branch.pred
+                
         return branch.pred
             
     def build_string_node(self, branch, show_classes):
@@ -512,14 +520,57 @@ class Lattice:
             else:
                 return ''
         
-        children_opt = branch.children[branch.attribute_opt]
         for category in range(self.attributes_categories[branch.attribute_opt]):
             child = branch.children[branch.attribute_opt][category]
             string += '(X_' + str(branch.attribute_opt) + '=' + str(category) + ' ' + self.build_string_node(child, show_classes) + ') '
 
         return string
+
+    def build_string_node_compact(self, branch, show_classes):
+        """
+        Description
+        --------------
+        Build a compact string representation (with parentheses) of the optimal subtree rooted at branch.
+        
+        Parameters
+        --------------
+        branch       : Branch, the branch from which we want to build the optimal subtree.
+        show_classes : Boolean, whether to show the predicted classes or not.
+        
+        Returns
+        --------------
+        String representation of the optimal subtree rooted at branch.
+        """
+
+        string = ''
+        if (branch.terminal) or (not branch.children) or (branch.attribute_opt is None):
+            if show_classes:
+                return 'Y=' + str(branch.pred) + ' '
+
+            else:
+                return ''
+
+        dict_subtrees = {}
+        for category in range(self.attributes_categories[branch.attribute_opt]):
+            child = branch.children[branch.attribute_opt][category]
+            dict_subtrees[category] = self.build_string_node_compact(child, show_classes)
+
+        while dict_subtrees:
+            categories_string = ''
+            category = list(dict_subtrees.keys())[0]
+            categories_string += str(category)
+            subtree_category = dict_subtrees[category]
+            dict_subtrees.pop(category)
+            for category_ in list(dict_subtrees.keys()):
+                if dict_subtrees[category_] == subtree_category:
+                    categories_string += ',' + str(category_)
+                    dict_subtrees.pop(category_)
+
+            string += '(X_' + str(branch.attribute_opt) + '=' + '{' + categories_string + '} ' + subtree_category + ') '
+
+        return string
     
-    def build_string(self, show_classes=True):
+    def build_string(self, show_classes=True, compact=False):
         """
         Description
         --------------
@@ -533,10 +584,14 @@ class Lattice:
         --------------
         String representation of the optimal Decision Tree.
         """
-        
-        return '( ' + self.build_string_node(self.root, show_classes) + ')'
+
+        if compact:
+            return '( ' + self.build_string_node_compact(self.root, show_classes) + ')'
+
+        else:
+            return '( ' + self.build_string_node(self.root, show_classes) + ')'
     
-    def plot_tree(self, show_classes=True):
+    def plot_tree(self, show_classes=True, compact=False):
         """
         Description
         --------------
@@ -551,6 +606,6 @@ class Lattice:
         nltk tree object, visualize the optimal Decision Tree.
         """
 
-        return Tree.fromstring(self.build_string(show_classes))
+        return Tree.fromstring(self.build_string(show_classes, compact))
 
         
