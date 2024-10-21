@@ -27,7 +27,6 @@ pip install svgling
     ├── Tables.png                   # PNG file containing a summary of empricial comparisons.
     ├── LICENSE
     └── README.md
-File ```src/tutorial.ipynb``` contains a tutorial on how to use Branches with illustrative examples.
 
 ## Example of usage
 
@@ -85,7 +84,9 @@ svgling.draw_tree(tree)
 
 <img src="trees/monk1-o-compact.svg">
 
-The tutorial file ```src/tutorial.ipynb``` contains more examples on how to use Branches, especially with its micro-optimisation techniques that allow for significant computational gains.
+The tutorial notebook ```src/tutorial.ipynb``` contains more examples on how to use Branches, especially with its micro-optimisation techniques that allow for significant computational gains. The following link opens the tutorial notebook on Google Collab <a target="_blank" href="https://colab.research.google.com/github/Chaoukia/branches/blob/main/src/tutorial.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
 
 ## Empirical Evaluation
 
