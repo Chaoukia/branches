@@ -23,7 +23,7 @@ class Branch:
     -----------------------    
     """
     
-    def __init__(self, id_branch, attributes_categories, bit_vector):
+    def __init__(self, id_branch, attributes_categories, bit_vector, depth, max_depth):
         """
         Description
         -----------------------
@@ -35,12 +35,13 @@ class Branch:
         attributes_categories : Dict: - keys   : Indices of the attributes to be considered for potential splits within the node.
                                       - values : Number of categories of each attribute.
         bit_vector            : 1D np.array, indicator vector of the data that the branch contains.
+        depth                 : Int, the depth of the branch.
         children              : Dict: - keys   : Splitting attribute.
                                       - values : Dict: - keys   : Value of the splitting attribute.
                                                        - values : The corresponding branch.
         queue                 : List in heap queue form. Its elements are tuples of the form (-value, value_complete, attribute, children):
                                 - value          : Float, sum of values of the children nodes.
-                                                   The reason we store it negative in the tuple is because heapq in python is not a max heapq.
+                                                   The reason we store it negative in the tuple is because heapq in python is in min heapq form.
                                 - value_complete : Float, sum of the values of the complete children.
                                                    Initialised to 0, once a child is complete, it is popped from the children dictionary and its value is incremented to value_complete.
                                 - attribute      : Int, splitting attribute.
@@ -62,10 +63,11 @@ class Branch:
         self.id_branch = id_branch
         self.attributes_categories = attributes_categories
         self.bit_vector = bit_vector
+        self.depth = depth
         self.children = {}
         self.queue = []
         self.attribute_opt = None
-        if self.attributes_categories:
+        if self.attributes_categories and (self.depth < max_depth):
             self.terminal = False
             self.complete = False
             
@@ -156,7 +158,7 @@ class Branch:
         """
         
         self.pred = pred
-        
+
     def evaluate_terminal(self, y, n_total):
         """
         Description
@@ -202,7 +204,7 @@ class Branch:
         # Only evaluate the branch if it has not been evaluated before.
         if self.value is None:
             self.evaluate_terminal(y, n_total)   # When the branch is explored for the first time, evaluate it.
-            if not self.terminal:   # If the branch can still be split because there are still available attributes.
+            if not self.terminal:   # If the branch can still be split because there are still available attributes or if the branch's depth is smaller than max_depth.
                 value_split = -lambd + self.freq
                 self.set_value(max(value_split, self.value_terminal))
                 if self.value == self.value_terminal:
@@ -211,7 +213,7 @@ class Branch:
             else:    # If the branch can no longer be split because there are no more available attributes.
                 self.set_value(self.value_terminal)
             
-    def split(self, X_branch, y_branch, lambd, sorted_branch, attribute, n_total):
+    def split(self, X_branch, y_branch, lambd, sorted_branch, attribute, n_total, max_depth):
         """
         Description
         -----------------------
@@ -268,7 +270,7 @@ class Branch:
                     X_branch = X_branch[indices]            # Data corresponding to the remaining children nodes.
                     y_branch = y_branch[indices]            # Data corresponding to the remaining children nodes.
 
-                    branch_child = Branch(id_branch_child, attributes_categories_children, bit_vector_child)
+                    branch_child = Branch(id_branch_child, attributes_categories_children, bit_vector_child, self.depth + 1, max_depth)
                     branch_child.evaluate(y_branch_child, lambd, n_total)   # When the branch is explored for the first time, we have to evaluate it.
                                                                             # Otherwise, its value has already been estimated and maybe updated through other routes.
 
@@ -301,7 +303,7 @@ class Lattice:
     -----------------------    
     """
     
-    def __init__(self, attributes_categories, n_total):
+    def __init__(self, attributes_categories, n_total, max_depth):
         """
         Description
         -----------------------
@@ -316,8 +318,22 @@ class Lattice:
         
         self.attributes_categories = attributes_categories
         self.n_total = n_total
-        self.root = Branch('', attributes_categories, np.full(n_total, True))
+        self.max_depth = max_depth
+        self.root = Branch('', attributes_categories, np.full(n_total, True), 0, max_depth)
         self.dict_branches = dict_branches
+
+#    def initialise(self, data, lambd):
+#        """
+#        Description
+#        -----------------------
+#        Initialise the lattice by running a first iteration expanding the root.
+#
+#        Attributes & Parameters
+#        -----------------------
+#        """
+#        
+#        self.root.evaluate(data[:, -1], lambd, self.n_total)
+#        self.expand(self.root, data, lambd, [])
         
     def select(self):
         """
@@ -371,7 +387,7 @@ class Lattice:
         
         for attribute in branch.attributes_categories:
             X_branch, y_branch = data_branch[:, attribute], data_branch[:, -1]
-            branch.split(X_branch, y_branch, lambd, sorted_branch, attribute, n_total)
+            branch.split(X_branch, y_branch, lambd, sorted_branch, attribute, n_total, self.max_depth)
 
         value_max = -branch.queue[0][0] - lambd
         branch.set_value(value_max)
@@ -485,11 +501,13 @@ class Lattice:
 
         branch = self.root
         while (not branch.terminal) and (branch.children) and (branch.attribute_opt is not None):
+#            branch = branch.children[branch.attribute_opt][X[branch.attribute_opt]]
             # When a feature has a value that was not observed during training, predict the class of the current branch (node).
             try:
                 branch = branch.children[branch.attribute_opt][X[branch.attribute_opt]]
 
             except KeyError:
+#                warnings.warn("The value %d of feature %d was not obsevred during training" %(X[branch.attribute_opt], branch.attribute_opt))
                 warnings.warn("The input " + str(X) + " could not be properly sorted into a leaf because the value " + str(X[branch.attribute_opt]) + " of feature " + str(branch.attribute_opt)
                              + " was not observed during training.")
                 return branch.pred
@@ -520,6 +538,7 @@ class Lattice:
             else:
                 return ''
         
+#        children_opt = branch.children[branch.attribute_opt]
         for category in range(self.attributes_categories[branch.attribute_opt]):
             child = branch.children[branch.attribute_opt][category]
             string += '(X_' + str(branch.attribute_opt) + '=' + str(category) + ' ' + self.build_string_node(child, show_classes) + ') '
