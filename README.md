@@ -1,6 +1,6 @@
-# Branches: A Fast Dynamic Programming and Branch & Bound Algorithm for Optimal Decision Trees
+# Branches: Efficiently Seeking Optimal Sparse Decision Trees with AO*
 
-Source code for the Algorithm Branches described in [Branches: A Fast Dynamic Programming and Branch & Bound Algorithm for Optimal Decision Trees](https://arxiv.org/abs/2406.02175) .
+Source code for the Algorithm Branches described in [Branches: Efficiently Seeking Optimal Sparse Decision Trees with AO*](https://arxiv.org/abs/2406.02175).
 
 ## Dependencies
 
@@ -16,15 +16,22 @@ pip install svgling
 
 ## Repository Structure
     .
-    ├── data                         # Data used for benchmarking
-    ├── src                          # Source files
-    │   ├── branch_ordinal.py        # Source file for classification problems with ordinally encoded data
-    │   ├── branch_binary.py         # Source file for binary classification problems with binary data
-    │   ├── branch_binary_multi.py   # Source file for classification problems with binary data
-    │   ├── branches.py              # Source file for the Branches algorithm
-    │   └── tutorial.ipynb           # Tutorial .ipynb notebook
-    ├── trees                        # SVG files of optimal decision trees
+    ├── data                         # Data used for benchmarking.
+    │   └── preprocessed             # Text files containing the preprocessed data.
+    │       └── preprocessing.py     # .py script preprocessing the data.
+    ├── results                      # Results of the experiments.
+    │   └── experiments.csv          # .csv file summarising the main experiments.
+    ├── src                          # Source files.
+    │   ├── branch_ordinal.py        # Source file for classification problems with ordinally encoded data.
+    │   ├── branch_binary.py         # Source file for binary classification problems with binary data.
+    │   ├── branch_binary_multi.py   # Source file for classification problems with binary data.
+    │   ├── branches.py              # Source file for the Branches algorithm.
+    │   ├── experiments.py           # Source file for running the main experiments.
+    │   ├── train.py                 # Source file for training Branches.
+    │   └── tutorial.ipynb           # Tutorial .ipynb notebook.
+    ├── trees                        # SVG files of optimal sparse decision trees.
     ├── Tables.png                   # PNG file containing a summary of empricial comparisons.
+    ├── dependencies.yml
     ├── LICENSE
     └── README.md
 
@@ -57,7 +64,7 @@ print('Number of splits :', splits)
 print('Accuracy :', ((alg.predict(data[:, :-1]) == data[:, -1]).sum())/alg.n_total)
 ```
 
-Using the nltk and svgling packages, we can plot the optimal Decision Tree via the code below. $\color{red}{\textsf{If you do not see the figures, it is due to a contrast issue and you should set a light theme for Github.}}$
+Using the nltk and svgling packages, we can plot the optimal sparse Decision Tree via the code below. $\color{red}{\textsf{If you do not see the figures, it is due to a contrast issue and you should set a light theme for Github.}}$
 
 ```python
 tree = alg.plot_tree(show_classes=False)
@@ -85,6 +92,36 @@ svgling.draw_tree(tree)
 <img src="trees/monk1-o-compact.svg">
 
 The tutorial notebook ```src/tutorial.ipynb``` contains more examples on how to use Branches, especially with its micro-optimisation techniques that allow for significant computational gains.
+
+## Training from the command line
+
+The file ```src/train.py``` allows training (fitting) Branches on data from the command line as per the example below.
+
+```
+cd src
+python train.py --path '../data/preprocessed/monk1.txt' --lambd 0.01 --encoding binary --path_tree ../trees/monk1-tree.svg
+```
+
+The script prints a summary that includes the objective, accuracy, number of splits and depth of the retrieved solution, along with the number of iterations and the runtime of Branches to terminate. The script also saves an SVG file of the solution in ```trees/monk1-tree.svg``` . The arguments are documented in ```src/train.py```.
+
+### Important note:
+
+Script ``src/train.py``` processes data that has been processed in a specific manner. 
+- The data is a .txt file.
+- The last column must be the predicted variable.
+- The data has been encoded and includes integers only.
+- The data is delimited with ' '.
+
+```data/preprocessed/preprocessing.py``` preprocesses the data employed in our experiments and saves it in ```data/preprocessed/```.
+
+To run the main experiments, use:
+
+```
+cd src
+python experiments.py
+```
+
+The results are summarised and saved in ```results/experiments.csv```.
 
 ## Empirical Evaluation
 
