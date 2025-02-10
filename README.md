@@ -125,7 +125,7 @@ The results are summarised and saved in ```results/experiments.csv```.
 
 ## Empirical Evaluation
 
-Branches optimises the regularised accuracy $\mathcal{H}_{\lambda}\left( T\right) = \textrm{Accuracy}\left( T\right) - \lambda \mathcal{S}\left( T\right)$, where $\mathcal{S}\left( T\right)$ is the number of splits (internal nodes) of Decision Tree $T$ and $\lambda \in \left[ 0, 1 \right]$ is a penalty parameter. The tables below summarise the empirical comparison between Branches and the state of the art. For more information about the experimental setup, please refer to Section 6 and Appendix F in our paper [Branches: A Fast Dynamic Programming and Branch & Bound Algorithm for Optimal Decision Trees](https://arxiv.org/abs/2406.02175) .
+Branches optimises the regularised accuracy $\mathcal{H}_{\lambda}\left( T\right) = \textrm{Accuracy}\left( T\right) - \lambda \mathcal{S}\left( T\right)$, where $\mathcal{S}\left( T\right)$ is the number of splits (internal nodes) of Decision Tree $T$ and $\lambda \in \left] 0, 1 \right[$ is a penalty parameter. The table below summarises the empirical comparison between Branches and the state of the art. For more information about the experimental setup, please refer to Section 5 and Appendix H in [Branches: Efficiently Seeking Optimal Sparse Decision Trees via AO*](https://arxiv.org/abs/2406.02175) .
 
 <p align="center">
 <img align="center" src="Tables.png", width=1000 height=auto/>
