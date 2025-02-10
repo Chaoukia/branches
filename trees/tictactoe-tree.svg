@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink" baseProfile="full" height="344px" preserveAspectRatio="xMidYMid meet" style="font-family: times, serif; font-weight: normal; font-style: normal; font-size: 16px;" version="1.1" viewBox="0,0,928.0,344.0" width="928px">
+  <defs/>
+  <svg width="100%" x="0" y="0px">
+    <defs/>
+  </svg>
+  <svg width="38.7931%" x="0%" y="32px">
+    <defs/>
+    <svg width="100%" x="0" y="0px">
+      <defs/>
+      <text text-anchor="middle" x="50%" y="16px">X_13=0</text>
+    </svg>
+    <svg width="15.5556%" x="0%" y="48px">
+      <defs/>
+      <svg width="100%" x="0" y="0px">
+        <defs/>
+        <text text-anchor="middle" x="50%" y="16px">X_1=0</text>
+      </svg>
+      <svg width="100%" x="0%" y="48px">
+        <defs/>
+        <svg width="100%" x="0" y="0px">
+          <defs/>
+          <text text-anchor="middle" x="50%" y="16px">Y=1</text>
+        </svg>
+      </svg>
+      <line stroke="black" x1="50%" x2="50%" y1="19.2px" y2="48px"/>
+    </svg>
+    <line stroke="black" x1="50%" x2="7.77778%" y1="19.2px" y2="48px"/>
+    <svg width="84.4444%" x="15.5556%" y="48px">
+      <defs/>
+      <svg width="100%" x="0" y="0px">
+        <defs/>
+        <text text-anchor="middle" x="50%" y="16px">X_1=1</text>
+      </svg>
+      <svg width="63.1579%" x="0%" y="48px">
+        <defs/>
+        <svg width="100%" x="0" y="0px">
+          <defs/>
+          <text text-anchor="middle" x="50%" y="16px">X_4=0</text>
+        </svg>
+        <svg width="33.3333%" x="0%" y="48px">
+          <defs/>
+          <svg width="100%" x="0" y="0px">
+            <defs/>
+            <text text-anchor="middle" x="50%" y="16px">X_10=0</text>
+          </svg>
+          <svg width="100%" x="0%" y="48px">
+            <defs/>
+            <svg width="100%" x="0" y="0px">
+              <defs/>
+              <text text-anchor="middle" x="50%" y="16px">Y=1</text>
+            </svg>
+          </svg>
+          <line stroke="black" x1="50%" x2="50%" y1="19.2px" y2="48px"/>
+        </svg>
+        <line stroke="black" x1="50%" x2="16.6667%" y1="19.2px" y2="48px"/>
+        <svg width="66.6667%" x="33.3333%" y="48px">
+          <defs/>
+          <svg width="100%" x="0" y="0px">
+            <defs/>
+            <text text-anchor="middle" x="50%" y="16px">X_10=1</text>
+          </svg>
+          <svg width="50%" x="0%" y="48px">
+            <defs/>
+            <svg width="100%" x="0" y="0px">
+              <defs/>
+              <text text-anchor="middle" x="50%" y="16px">X_19=0</text>
+            </svg>
+            <svg width="100%" x="0%" y="48px">
+              <defs/>
+              <svg width="100%" x="0" y="0px">
+                <defs/>
+                <text text-anchor="middle" x="50%" y="16px">Y=1</text>
+              </svg>
+            </svg>
+            <line stroke="black" x1="50%" x2="50%" y1="19.2px" y2="48px"/>
+          </svg>
+          <line stroke="black" x1="50%" x2="25%" y1="19.2px" y2="48px"/>
+          <svg width="50%" x="50%" y="48px">
+            <defs/>
+            <svg width="100%" x="0" y="0px">
+              <defs/>
+              <text text-anchor="middle" x="50%" y="16px">X_19=1</text>
+            </svg>
+            <svg width="100%" x="0%" y="48px">
+              <defs/>
+              <svg width="100%" x="0" y="0px">
+                <defs/>
+                <text text-anchor="middle" x="50%" y="16px">Y=0</text>
+              </svg>
+            </svg>
+            <line stroke="black" x1="50%" x2="50%" y1="19.2px" y2="48px"/>
+          </svg>
+          <line stroke="black" x1="50%" x2="75%" y1="19.2px" y2="48px"/>
+        </svg>
+        <line stroke="black" x1="50%" x2="66.6667%" y1="19.2px" y2="48px"/>
+      </svg>
+      <line stroke="black" x1="50%" x2="31.5789%" y1="19.2px" y2="48px"/>
+      <svg width="36.8421%" x="63.1579%" y="48px">
+        <defs/>
+        <svg width="100%" x="0" y="0px">
+          <defs/>
+          <text text-anchor="middle" x="50%" y="16px">X_4=1</text>
+        </svg>
+        <svg width="50%" x="0%" y="48px">
+          <defs/>
+          <svg width="100%" x="0" y="0px">
+            <defs/>
+            <text text-anchor="middle" x="50%" y="16px">X_7=0</text>
+          </svg>
+          <svg width="100%" x="0%" y="48px">
+            <defs/>
+            <svg width="100%" x="0" y="0px">
+              <defs/>
+              <text text-anchor="middle" x="50%" y="16px">Y=1</text>
+            </svg>
+          </svg>
+          <line stroke="black" x1="50%" x2="50%" y1="19.2px" y2="48px"/>
+        </svg>
+        <line stroke="black" x1="50%" x2="25%" y1="19.2px" y2="48px"/>
+        <svg width="50%" x="50%" y="48px">
+          <defs/>
+          <svg width="100%" x="0" y="0px">
+            <defs/>
+            <text text-anchor="middle" x="50%" y="16px">X_7=1</text>
+          </svg>
+          <svg width="100%" x="0%" y="48px">
+            <defs/>
+            <svg width="100%" x="0" y="0px">
+              <defs/>
+              <text text-anchor="middle" x="50%" y="16px">Y=0</text>
+            </svg>
+          </svg>
+          <line stroke="black" x1="50%" x2="50%" y1="19.2px" y2="48px"/>
+        </svg>
+        <line stroke="black" x1="50%" x2="75%" y1="19.2px" y2="48px"/>
+      </svg>
+      <line stroke="black" x1="50%" x2="81.5789%" y1="19.2px" y2="48px"/>
+    </svg>
+    <line stroke="black" x1="50%" x2="57.7778%" y1="19.2px" y2="48px"/>
+  </svg>
+  <line stroke="black" x1="50%" x2="19.3966%" y1="0px" y2="32px"/>
+  <svg width="61.2069%" x="38.7931%" y="32px">
+    <defs/>
+    <svg width="100%" x="0" y="0px">
+      <defs/>
+      <text text-anchor="middle" x="50%" y="16px">X_13=1</text>
+    </svg>
+    <svg width="77.4648%" x="0%" y="48px">
+      <defs/>
+      <svg width="100%" x="0" y="0px">
+        <defs/>
+        <text text-anchor="middle" x="50%" y="16px">X_1=0</text>
+      </svg>
+      <svg width="70.9091%" x="0%" y="48px">
+        <defs/>
+        <svg width="100%" x="0" y="0px">
+          <defs/>
+          <text text-anchor="middle" x="50%" y="16px">X_7=0</text>
+        </svg>
+        <svg width="58.9744%" x="0%" y="48px">
+          <defs/>
+          <svg width="100%" x="0" y="0px">
+            <defs/>
+            <text text-anchor="middle" x="50%" y="16px">X_10=0</text>
+          </svg>
+          <svg width="30.4348%" x="0%" y="48px">
+            <defs/>
+            <svg width="100%" x="0" y="0px">
+              <defs/>
+              <text text-anchor="middle" x="50%" y="16px">X_4=0</text>
+            </svg>
+            <svg width="100%" x="0%" y="48px">
+              <defs/>
+              <svg width="100%" x="0" y="0px">
+                <defs/>
+                <text text-anchor="middle" x="50%" y="16px">Y=1</text>
+              </svg>
+            </svg>
+            <line stroke="black" x1="50%" x2="50%" y1="19.2px" y2="48px"/>
+          </svg>
+          <line stroke="black" x1="50%" x2="15.2174%" y1="19.2px" y2="48px"/>
+          <svg width="69.5652%" x="30.4348%" y="48px">
+            <defs/>
+            <svg width="100%" x="0" y="0px">
+              <defs/>
+              <text text-anchor="middle" x="50%" y="16px">X_4=1</text>
+            </svg>
+            <svg width="50%" x="0%" y="48px">
+              <defs/>
+              <svg width="100%" x="0" y="0px">
+                <defs/>
+                <text text-anchor="middle" x="50%" y="16px">X_22=0</text>
+              </svg>
+              <svg width="100%" x="0%" y="48px">
+                <defs/>
+                <svg width="100%" x="0" y="0px">
+                  <defs/>
+                  <text text-anchor="middle" x="50%" y="16px">Y=1</text>
+                </svg>
+              </svg>
+              <line stroke="black" x1="50%" x2="50%" y1="19.2px" y2="48px"/>
+            </svg>
+            <line stroke="black" x1="50%" x2="25%" y1="19.2px" y2="48px"/>
+            <svg width="50%" x="50%" y="48px">
+              <defs/>
+              <svg width="100%" x="0" y="0px">
+                <defs/>
+                <text text-anchor="middle" x="50%" y="16px">X_22=1</text>
+              </svg>
+              <svg width="100%" x="0%" y="48px">
+                <defs/>
+                <svg width="100%" x="0" y="0px">
+                  <defs/>
+                  <text text-anchor="middle" x="50%" y="16px">Y=0</text>
+                </svg>
+              </svg>
+              <line stroke="black" x1="50%" x2="50%" y1="19.2px" y2="48px"/>
+            </svg>
+            <line stroke="black" x1="50%" x2="75%" y1="19.2px" y2="48px"/>
+          </svg>
+          <line stroke="black" x1="50%" x2="65.2174%" y1="19.2px" y2="48px"/>
+        </svg>
+        <line stroke="black" x1="50%" x2="29.4872%" y1="19.2px" y2="48px"/>
+        <svg width="41.0256%" x="58.9744%" y="48px">
+          <defs/>
+          <svg width="100%" x="0" y="0px">
+            <defs/>
+            <text text-anchor="middle" x="50%" y="16px">X_10=1</text>
+          </svg>
+          <svg width="50%" x="0%" y="48px">
+            <defs/>
+            <svg width="100%" x="0" y="0px">
+              <defs/>
+              <text text-anchor="middle" x="50%" y="16px">X_16=0</text>
+            </svg>
+            <svg width="100%" x="0%" y="48px">
+              <defs/>
+              <svg width="100%" x="0" y="0px">
+                <defs/>
+                <text text-anchor="middle" x="50%" y="16px">Y=1</text>
+              </svg>
+            </svg>
+            <line stroke="black" x1="50%" x2="50%" y1="19.2px" y2="48px"/>
+          </svg>
+          <line stroke="black" x1="50%" x2="25%" y1="19.2px" y2="48px"/>
+          <svg width="50%" x="50%" y="48px">
+            <defs/>
+            <svg width="100%" x="0" y="0px">
+              <defs/>
+              <text text-anchor="middle" x="50%" y="16px">X_16=1</text>
+            </svg>
+            <svg width="100%" x="0%" y="48px">
+              <defs/>
+              <svg width="100%" x="0" y="0px">
+                <defs/>
+                <text text-anchor="middle" x="50%" y="16px">Y=0</text>
+              </svg>
+            </svg>
+            <line stroke="black" x1="50%" x2="50%" y1="19.2px" y2="48px"/>
+          </svg>
+          <line stroke="black" x1="50%" x2="75%" y1="19.2px" y2="48px"/>
+        </svg>
+        <line stroke="black" x1="50%" x2="79.4872%" y1="19.2px" y2="48px"/>
+      </svg>
+      <line stroke="black" x1="50%" x2="35.4545%" y1="19.2px" y2="48px"/>
+      <svg width="29.0909%" x="70.9091%" y="48px">
+        <defs/>
+        <svg width="100%" x="0" y="0px">
+          <defs/>
+          <text text-anchor="middle" x="50%" y="16px">X_7=1</text>
+        </svg>
+        <svg width="50%" x="0%" y="48px">
+          <defs/>
+          <svg width="100%" x="0" y="0px">
+            <defs/>
+            <text text-anchor="middle" x="50%" y="16px">X_20=0</text>
+          </svg>
+          <svg width="100%" x="0%" y="48px">
+            <defs/>
+            <svg width="100%" x="0" y="0px">
+              <defs/>
+              <text text-anchor="middle" x="50%" y="16px">Y=0</text>
+            </svg>
+          </svg>
+          <line stroke="black" x1="50%" x2="50%" y1="19.2px" y2="48px"/>
+        </svg>
+        <line stroke="black" x1="50%" x2="25%" y1="19.2px" y2="48px"/>
+        <svg width="50%" x="50%" y="48px">
+          <defs/>
+          <svg width="100%" x="0" y="0px">
+            <defs/>
+            <text text-anchor="middle" x="50%" y="16px">X_20=1</text>
+          </svg>
+          <svg width="100%" x="0%" y="48px">
+            <defs/>
+            <svg width="100%" x="0" y="0px">
+              <defs/>
+              <text text-anchor="middle" x="50%" y="16px">Y=1</text>
+            </svg>
+          </svg>
+          <line stroke="black" x1="50%" x2="50%" y1="19.2px" y2="48px"/>
+        </svg>
+        <line stroke="black" x1="50%" x2="75%" y1="19.2px" y2="48px"/>
+      </svg>
+      <line stroke="black" x1="50%" x2="85.4545%" y1="19.2px" y2="48px"/>
+    </svg>
+    <line stroke="black" x1="50%" x2="38.7324%" y1="19.2px" y2="48px"/>
+    <svg width="22.5352%" x="77.4648%" y="48px">
+      <defs/>
+      <svg width="100%" x="0" y="0px">
+        <defs/>
+        <text text-anchor="middle" x="50%" y="16px">X_1=1</text>
+      </svg>
+      <svg width="50%" x="0%" y="48px">
+        <defs/>
+        <svg width="100%" x="0" y="0px">
+          <defs/>
+          <text text-anchor="middle" x="50%" y="16px">X_26=0</text>
+        </svg>
+        <svg width="100%" x="0%" y="48px">
+          <defs/>
+          <svg width="100%" x="0" y="0px">
+            <defs/>
+            <text text-anchor="middle" x="50%" y="16px">Y=0</text>
+          </svg>
+        </svg>
+        <line stroke="black" x1="50%" x2="50%" y1="19.2px" y2="48px"/>
+      </svg>
+      <line stroke="black" x1="50%" x2="25%" y1="19.2px" y2="48px"/>
+      <svg width="50%" x="50%" y="48px">
+        <defs/>
+        <svg width="100%" x="0" y="0px">
+          <defs/>
+          <text text-anchor="middle" x="50%" y="16px">X_26=1</text>
+        </svg>
+        <svg width="100%" x="0%" y="48px">
+          <defs/>
+          <svg width="100%" x="0" y="0px">
+            <defs/>
+            <text text-anchor="middle" x="50%" y="16px">Y=1</text>
+          </svg>
+        </svg>
+        <line stroke="black" x1="50%" x2="50%" y1="19.2px" y2="48px"/>
+      </svg>
+      <line stroke="black" x1="50%" x2="75%" y1="19.2px" y2="48px"/>
+    </svg>
+    <line stroke="black" x1="50%" x2="88.7324%" y1="19.2px" y2="48px"/>
+  </svg>
+  <line stroke="black" x1="50%" x2="69.3966%" y1="0px" y2="32px"/>
+</svg>

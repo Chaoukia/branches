@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink" baseProfile="full" height="104px" preserveAspectRatio="xMidYMid meet" style="font-family: times, serif; font-weight: normal; font-style: normal; font-size: 16px;" version="1.1" viewBox="0,0,272.0,104.0" width="272px">
+  <defs/>
+  <svg width="100%" x="0" y="0px">
+    <defs/>
+  </svg>
+  <svg width="41.1765%" x="0%" y="32px">
+    <defs/>
+    <svg width="100%" x="0" y="0px">
+      <defs/>
+      <text text-anchor="middle" x="50%" y="16px">X_17={0,3,5}</text>
+    </svg>
+    <svg width="100%" x="0%" y="48px">
+      <defs/>
+      <svg width="100%" x="0" y="0px">
+        <defs/>
+        <text text-anchor="middle" x="50%" y="16px">Y=0</text>
+      </svg>
+    </svg>
+    <line stroke="black" x1="50%" x2="50%" y1="19.2px" y2="48px"/>
+  </svg>
+  <line stroke="black" x1="50%" x2="20.5882%" y1="0px" y2="32px"/>
+  <svg width="58.8235%" x="41.1765%" y="32px">
+    <defs/>
+    <svg width="100%" x="0" y="0px">
+      <defs/>
+      <text text-anchor="middle" x="50%" y="16px">X_17={1,2,4,6,7,8}</text>
+    </svg>
+    <svg width="100%" x="0%" y="48px">
+      <defs/>
+      <svg width="100%" x="0" y="0px">
+        <defs/>
+        <text text-anchor="middle" x="50%" y="16px">Y=1</text>
+      </svg>
+    </svg>
+    <line stroke="black" x1="50%" x2="50%" y1="19.2px" y2="48px"/>
+  </svg>
+  <line stroke="black" x1="50%" x2="70.5882%" y1="0px" y2="32px"/>
+</svg>

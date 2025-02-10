@@ -1,4 +1,5 @@
 import svgling
+import argparse
 from branch_ordinal import *
 from branch_binary import *
 from branch_binary_multi import *
@@ -56,7 +57,7 @@ class Branches:
         Search for the optimal Decision Tree.
         Parameters
         -----------------------
-        lambd      : Float in [0, 1], the complexity parameter.
+        lambd      : Float in ]0, 1[, the complexity parameter.
         n          : Int, maximum number of iterations.
         print_iter : Int, number of iterations between two prints.
         time_limit : Int, Time limit in number of seconds.
@@ -224,6 +225,7 @@ class Branches:
         Parameters
         --------------
         show_classes : Boolean, whether to show the predicted classes or not.
+        compact      : Boolean, whether to collapse the DT or not.
         
         Returns
         --------------
@@ -253,5 +255,30 @@ class Branches:
 
         tree = self.lattice.plot_tree(show_classes)
         svgling.draw_tree(tree).saveas("../trees/"+file_name, pretty=True) 
-    
-    
+
+def retrieve_depth(branches):
+    d = 0
+    for branch in branches:
+        if branch.depth > d:
+            d = branch.depth
+
+    return d
+
+def summary(data, lambd=0.01, n=5000000, print_iter=10000, time_limit=300, encoding='ordinal', max_depth=np.inf, show_classes=True, compact=True):
+    alg = Branches(data, encoding, max_depth)
+    start_time = time()
+    iterations = alg.solve(lambd, n=n, print_iter=print_iter, time_limit=time_limit)
+    print('Execution time        : %.4f' %(time() - start_time))
+    print('Number of iterations  : %d' %iterations)
+    branches, splits = alg.lattice.infer()
+    print('Number of branches    :', len(branches))
+    print('Number of splits      :', splits)
+    d = retrieve_depth(branches)
+    print('Depth                 :', d)
+    acc = ((alg.predict(data[:, :-1]) == data[:, -1]).sum())/alg.n_total
+    print('Accuracy :', acc)
+    print('Regularised objective :', acc - lambd*splits)
+    tree = alg.plot_tree(show_classes, compact)
+    alg.reinitialise()
+    return tree
+
