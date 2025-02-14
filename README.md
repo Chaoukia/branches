@@ -106,7 +106,7 @@ The script prints a summary that includes the objective, accuracy, number of spl
 
 ### Important note:
 
-Script ``src/train.py``` processes data that has been processed in a specific manner. 
+Script ```src/train.py``` processes data that has been processed in a specific manner. 
 - The data is a .txt file.
 - The last column must be the predicted variable.
 - The data has been encoded and includes integers only.
